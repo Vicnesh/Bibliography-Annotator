@@ -1,0 +1,13 @@
+PACKAGE BibliographyAnnotator;
+
+
+TYPESYSTEM types.BibliographyTypeSystem;
+
+
+
+
+DECLARE BibliographyEntry;
+
+
+Document{-> RETAINTYPE(BREAK)};
+(#{->MARKONCE(BibliographyEntry)} BREAK)+;

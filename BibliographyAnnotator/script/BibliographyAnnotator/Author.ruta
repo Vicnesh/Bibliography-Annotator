@@ -1,0 +1,91 @@
+PACKAGE BibliographyAnnotator;
+
+TYPESYSTEM types.BibliographyTypeSystem;
+SCRIPT BibliographyAnnotator.Date;
+SCRIPT BibliographyAnnotator.Entry;
+
+//DECLARATION
+DECLARE NameInitial;
+DECLARE FirstName;
+DECLARE LastName;
+DECLARE MiddleName;
+DECLARE FullName;
+DECLARE NameLinker;
+DECLARE Editor;
+DECLARE Translator;
+DECLARE EditorName;
+
+
+WORDLIST MonthList = 'MonthList.txt';
+
+
+//FIND 1-3 CHARACTERS THEN A PERIOD
+(CW{REGEXP(".{1,2}")} PERIOD) {-> MARK(NameInitial)};
+
+//REMOVES NO. and VOL. from NAME INITIAL ANNOTATIONS
+NameInitial{OR(REGEXP("No.|Vol."), INLIST(MonthList)) ->UNMARK(NameInitial)};
+
+
+//LAST NAME COMMA FIRST NAME
+(CW {-> MARKONCE(LastName)} COMMA CW? {-> MARK(MiddleName)} NameInitial);
+
+
+CW{-> MARKONCE(LastName)} COMMA? NameInitial;
+
+
+//FIRST CW FOR EACH ENTRY
+W{POSITION(BibliographyEntry,1, false) -> MARKONCE(LastName)};
+
+
+//last name first name
+LastName COMMA? CW{-PARTOF(NameInitial)-> MARKONCE(FirstName)};
+
+(NameInitial CW{-PARTOF(NameInitial)->MARKONCE(LastName)}) {->MARKONCE(FullName)};
+
+
+
+//PLEASE WORK?????  
+//WHY ARENT U WORKING????
+//combine 1
+(LastName COMMA? FirstName? NameInitial+) {-> MARKONCE(FullName)};
+
+//combine 2
+(LastName COMMA? FirstName) {-> MARKONCE(FullName)};
+
+
+
+
+//between names.
+FullName SW{REGEXP("and") ->MARK(NameLinker)};
+
+
+//NameInitial CW{-PARTOF(NameInitial)->MARK (FirstName)};
+
+//(CW #{PARTOF(BibliographyEntry)} PERIOD) {-> MARK(FullName)};
+
+//(CW {-> MARK(LastName)} COMMA LastName);
+
+
+
+
+
+
+
+
+//EDITOR
+(W{REGEXP("eds|ed")}PERIOD)  {-> MARK(Editor)};
+
+//name after eds.
+Editor COMMA? (CW+? NameInitial? CW?) {-> MARKONCE(EditorName)}
+ANY?{REGEXP("and|&")  -> MARKONCE(NameLinker)} COMMA?
+(CW+? NameInitial? CW?) {-> MARKONCE(EditorName)};
+
+
+
+
+
+//TRANSLATOR
+(W{REGEXP("trans")}PERIOD) {-> MARK(Translator)};
+
+
+

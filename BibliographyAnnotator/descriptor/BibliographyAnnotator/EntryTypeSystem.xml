@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>BibliographyAnnotator.EntryTypeSystem</name>
+    <imports>
+        <import location="../BasicTypeSystem.xml"/>
+        <import location="../types/BibliographyTypeSystem.xml"/>
+    </imports>
+    <types>
+        <typeDescription>
+            <name>BibliographyAnnotator.Entry.BibliographyEntry</name>
+            <description>Type defined in BibliographyAnnotator.Entry</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+    </types>
+</typeSystemDescription>

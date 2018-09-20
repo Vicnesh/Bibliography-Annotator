@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>BibliographyAnnotator.PublishTypeSystem</name>
+    <imports>
+        <import location="../BasicTypeSystem.xml"/>
+        <import location="../types/BibliographyTypeSystem.xml"/>
+        <import location="DateTypeSystem.xml"/>
+    </imports>
+    <types>
+        <typeDescription>
+            <name>BibliographyAnnotator.Publish.PublishLocation</name>
+            <description>Type defined in BibliographyAnnotator.Publish</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Publish.Publisher</name>
+            <description>Type defined in BibliographyAnnotator.Publish</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Publish.PublishYear</name>
+            <description>Type defined in BibliographyAnnotator.Publish</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Publish.PublishName</name>
+            <description>Type defined in BibliographyAnnotator.Publish</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+    </types>
+</typeSystemDescription>

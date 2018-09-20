@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>BibliographyAnnotator.DateTypeSystem</name>
+    <imports>
+        <import location="../BasicTypeSystem.xml"/>
+        <import location="../types/BibliographyTypeSystem.xml"/>
+    </imports>
+    <types>
+        <typeDescription>
+            <name>BibliographyAnnotator.Date.Year</name>
+            <description>Type defined in BibliographyAnnotator.Date</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Date.Month</name>
+            <description>Type defined in BibliographyAnnotator.Date</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Date.Day</name>
+            <description>Type defined in BibliographyAnnotator.Date</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Date.MonthYear</name>
+            <description>Type defined in BibliographyAnnotator.Date</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Date.AccessDate</name>
+            <description>Type defined in BibliographyAnnotator.Date</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Date.Season</name>
+            <description>Type defined in BibliographyAnnotator.Date</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+    </types>
+</typeSystemDescription>

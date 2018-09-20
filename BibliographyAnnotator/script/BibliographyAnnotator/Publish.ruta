@@ -1,0 +1,28 @@
+PACKAGE BibliographyAnnotator;
+
+TYPESYSTEM types.BibliographyTypeSystem;
+
+
+SCRIPT BibliographyAnnotator.Date;
+
+
+//PUBLISHER
+DECLARE Publisher;
+(SPECIAL{REGEXP("\\(")} CW*?{-PARTOF(Month)} COLON? CW*? COMMA Year SPECIAL?{REGEXP("\\-")}
+Year? SPECIAL?{REGEXP("\\)")}) {-> MARK(Publisher)};
+
+
+//PUBLISHLOCATION
+DECLARE PublishLocation;
+SPECIAL{REGEXP("\\("), PARTOF(Publisher)} CW+?{PARTOF(Publisher)
+-> MARK(PublishLocation)} COLON{PARTOF(Publisher)};
+
+//PUBLISHNAME
+DECLARE PublishName;
+PublishLocation COLON{PARTOF(Publisher)} CW+?{PARTOF(Publisher)
+-> MARK(PublishName)} COMMA;
+
+//PUBLISH YEAR
+DECLARE PublishYear;
+(Year{PARTOF(Publisher)} SPECIAL?{REGEXP("\\-"),
+PARTOF(Publisher)} Year?) {-> MARK(PublishYear)};

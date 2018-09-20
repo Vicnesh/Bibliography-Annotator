@@ -1,0 +1,27 @@
+PACKAGE BibliographyAnnotator;
+
+TYPESYSTEM types.BibliographyTypeSystem;
+SCRIPT BibliographyAnnotator.Date;
+SCRIPT BibliographyAnnotator.Author;
+
+
+
+
+DECLARE AccessURL;
+(ANY{REGEXP("https")} ANY+? ) {-> MARK(AccessURL)} (PERIOD AccessDate);
+
+DECLARE PagesCited;
+(NUM SPECIAL{REGEXP("-")} NUM) {-> MARK(PagesCited)};
+
+DECLARE VolumeNumber;
+(W{REGEXP("Vol|Volume", true)} PERIOD? NUM) {-> MARK(VolumeNumber)};
+
+
+DECLARE IssueNumber;
+(W{REGEXP("No|Number", true)} PERIOD? NUM W?{REGEXP("and", true)} NUM?) {-> MARK(IssueNumber)};
+
+
+
+DECLARE EntryTitle;
+FullName PERIOD? COMMA? ANY+?{-> MARK(EntryTitle)} PERIOD;
+Year COMMA ANY+?{-> MARK(EntryTitle)} PERIOD;

@@ -1,0 +1,23 @@
+PACKAGE BibliographyAnnotator;
+
+
+TYPESYSTEM types.BibliographyTypeSystem;
+
+
+SCRIPT BibliographyAnnotator.Date;
+SCRIPT BibliographyAnnotator.Author;
+SCRIPT BibliographyAnnotator.Title;
+SCRIPT BibliographyAnnotator.Publish;
+SCRIPT BibliographyAnnotator.Entry;
+
+Document{-> RETAINTYPE(BREAK)};
+
+Document{-> CALL(Entry)};
+Document{-> CALL(Date)};
+Document{-> CALL(Author)};
+Document{-> CALL(Publish)};
+Document{-> CALL(Title)};
+
+
+
+Document{-> CREATE (Bibliography, "author" = Author, "date" = Date, "title" = Title, "publish" = Publish, "entry" =  BibliographyAnnotator.Entry)};

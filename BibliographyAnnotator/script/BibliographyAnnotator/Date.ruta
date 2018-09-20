@@ -1,0 +1,47 @@
+PACKAGE BibliographyAnnotator;
+
+TYPESYSTEM types.BibliographyTypeSystem;
+
+
+
+WORDLIST MonthList = 'MonthList.txt';
+
+
+
+DECLARE Month;
+Document{-> MARKFAST(Month, MonthList)};
+
+DECLARE Year;
+NUM{REGEXP("19..|20..") -> MARK(Year)};
+
+
+DECLARE Season;
+W{REGEXP("Spring|Summer|Autumn|Winter") -> MARK(Season)};
+
+DECLARE Day;
+(NUM{REGEXP(".{1,2}")}SW{REGEXP(".{2}")}) {-> MARK(Day)};
+//MORE PRECISE.
+
+//MONTHYEAR
+DECLARE MonthYear;
+
+//month year
+Month Year{->MARK(MonthYear)};
+
+
+
+DECLARE AccessDate;
+//"Accessed" word annotate
+(SPECIAL{REGEXP("\\(")} CW{REGEXP("Accessed")} ANY+? SPECIAL?{REGEXP("\\)")}) {-> MARK(AccessDate)};
+
+
+
+//month comma year
+//(SPECIAL Month COMMA Year SPECIAL){->MARK(MonthYear)};
+
+//in parantheses
+//(SPECIAL MonthYear SPECIAL){->MARK(MonthYear)};
+
+
+//(SPECIAL Month MonthYear) {->MARK(MonthYear)};
+//(Month SPECIAL MonthYear {->MARK(MonthYear)});

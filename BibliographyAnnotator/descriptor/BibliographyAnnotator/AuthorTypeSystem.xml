@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>BibliographyAnnotator.AuthorTypeSystem</name>
+    <imports>
+        <import location="../BasicTypeSystem.xml"/>
+        <import location="../types/BibliographyTypeSystem.xml"/>
+        <import location="DateTypeSystem.xml"/>
+        <import location="EntryTypeSystem.xml"/>
+    </imports>
+    <types>
+        <typeDescription>
+            <name>BibliographyAnnotator.Author.LastName</name>
+            <description>Type defined in BibliographyAnnotator.Author</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Author.NameLinker</name>
+            <description>Type defined in BibliographyAnnotator.Author</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Author.NameInitial</name>
+            <description>Type defined in BibliographyAnnotator.Author</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Author.FullName</name>
+            <description>Type defined in BibliographyAnnotator.Author</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Author.MiddleName</name>
+            <description>Type defined in BibliographyAnnotator.Author</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Author.Editor</name>
+            <description>Type defined in BibliographyAnnotator.Author</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Author.Translator</name>
+            <description>Type defined in BibliographyAnnotator.Author</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Author.EditorName</name>
+            <description>Type defined in BibliographyAnnotator.Author</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Author.FirstName</name>
+            <description>Type defined in BibliographyAnnotator.Author</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+    </types>
+</typeSystemDescription>

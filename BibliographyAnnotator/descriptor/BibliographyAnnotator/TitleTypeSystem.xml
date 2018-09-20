@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>BibliographyAnnotator.TitleTypeSystem</name>
+    <imports>
+        <import location="../BasicTypeSystem.xml"/>
+        <import location="../types/BibliographyTypeSystem.xml"/>
+        <import location="DateTypeSystem.xml"/>
+        <import location="AuthorTypeSystem.xml"/>
+    </imports>
+    <types>
+        <typeDescription>
+            <name>BibliographyAnnotator.Title.VolumeNumber</name>
+            <description>Type defined in BibliographyAnnotator.Title</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Title.AccessURL</name>
+            <description>Type defined in BibliographyAnnotator.Title</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Title.PagesCited</name>
+            <description>Type defined in BibliographyAnnotator.Title</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Title.IssueNumber</name>
+            <description>Type defined in BibliographyAnnotator.Title</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>BibliographyAnnotator.Title.EntryTitle</name>
+            <description>Type defined in BibliographyAnnotator.Title</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+    </types>
+</typeSystemDescription>
